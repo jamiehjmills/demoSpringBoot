@@ -1,4 +1,4 @@
-package entity;
+package com.example.demoSpringBoot.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
