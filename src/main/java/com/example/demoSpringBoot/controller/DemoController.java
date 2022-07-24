@@ -4,6 +4,7 @@ import com.example.demoSpringBoot.FirstName;
 import com.example.demoSpringBoot.entity.Employee;
 import com.example.demoSpringBoot.entity.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,6 +18,7 @@ public class DemoController {
 
     Employee employees;
 
+    @Autowired
     EmployeeRepo db;
 
     int id = 0;
@@ -30,7 +32,9 @@ public class DemoController {
         this.employees = new Employee(id, firstName.getFirstName(), "test", lastName);
         db.save(employees);
 
-        System.out.println(id +" "+ firstName.getFirstName() + " " + lastName);
+        //System.out.println(id +" "+ firstName.getFirstName());
+
+        System.out.println(lastName + " " + firstName.getFirstName()); //<-- this works!
     }
 
 
