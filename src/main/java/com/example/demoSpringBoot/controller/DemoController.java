@@ -1,13 +1,11 @@
 package com.example.demoSpringBoot.controller;
 
 import com.example.demoSpringBoot.FirstName;
-import com.example.demoSpringBoot.entity.Employee;
-import com.example.demoSpringBoot.entity.EmployeeRepo;
+import com.example.demoSpringBoot.entity.Customer;
+import com.example.demoSpringBoot.entity.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,10 +14,10 @@ public class DemoController {
     @Autowired
     FirstName firstName;
 
-    Employee employees;
+    Customer customer;
 
     @Autowired
-    EmployeeRepo db;
+    CustomerRepo db;
 
     int id = 0;
 
@@ -29,8 +27,8 @@ public class DemoController {
 
         id++;
 
-        this.employees = new Employee(id, firstName.getFirstName(), "test", lastName);
-        db.save(employees);
+        this.customer = new Customer(id, firstName.getFirstName(), "test", lastName);
+        db.save(customer);
 
         //System.out.println(id +" "+ firstName.getFirstName());
 
